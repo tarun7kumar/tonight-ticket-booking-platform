@@ -235,9 +235,9 @@ export default function Events() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: (filteredEvents.dbList.length + i) * 0.04 }}
               >
-                <Link 
-                  to={`/movies/${movie.id}`} 
-                  className="event-card" 
+                <Link
+                  to={`/movies/${movie.id}`}
+                  className="event-card"
                   style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
                 >
                   <div className="event-card__image cinematic-img-wrapper">

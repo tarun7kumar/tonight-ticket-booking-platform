@@ -46,9 +46,6 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="navbar__links">
-          <Link to="/events" className={`navbar__link ${location.pathname === '/events' ? 'navbar__link--active' : ''}`}>
-            Events
-          </Link>
           {isAuthenticated && user?.role === 'organiser' && (
             <Link to="/organiser" className={`navbar__link ${location.pathname === '/organiser' ? 'navbar__link--active' : ''}`}>
               Dashboard
@@ -121,7 +118,6 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <Link to="/events" className="navbar__mobile-link">Events</Link>
             {isAuthenticated ? (
               <>
                 <Link to={getDashboardPath()} className="navbar__mobile-link">Dashboard</Link>

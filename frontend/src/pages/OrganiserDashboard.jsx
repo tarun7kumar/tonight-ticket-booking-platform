@@ -105,7 +105,7 @@ export default function OrganiserDashboard() {
           ...prev,
           pricing: categories.map(c => ({ category_id: c.id, category_name: c.name, price: '' })),
         }));
-      } catch {}
+      } catch { }
     }
   };
 
