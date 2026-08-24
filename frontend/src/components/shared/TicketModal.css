@@ -1,0 +1,318 @@
+/* Ticket Modal Overlay */
+.ticket-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  overflow-y: auto;
+}
+
+/* Ticket Modal Card */
+.ticket-modal-card {
+  position: relative;
+  background: #121216;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(139, 92, 246, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Close Button */
+.ticket-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.ticket-modal-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Modal Header */
+.ticket-modal-header {
+  padding: 24px 24px 18px;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.12) 0%, rgba(18, 18, 22, 0) 100%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticket-modal-success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+.ticket-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 4px 0 2px;
+  line-height: 1.3;
+}
+
+.ticket-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.ticket-modal-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Perforated Stub Divider */
+.ticket-stub-divider {
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.ticket-stub-notch {
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.ticket-stub-notch-left {
+  left: -10px;
+  box-shadow: inset -2px 0 3px rgba(0,0,0,0.4);
+}
+
+.ticket-stub-notch-right {
+  right: -10px;
+  box-shadow: inset 2px 0 3px rgba(0,0,0,0.4);
+}
+
+.ticket-stub-line {
+  width: 100%;
+  border-top: 2px dashed rgba(255, 255, 255, 0.15);
+  margin: 0 16px;
+}
+
+/* Modal Body */
+.ticket-modal-body {
+  padding: 16px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ticket-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.ticket-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ticket-detail-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+}
+
+.ticket-ref-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.ticket-ref-box:hover {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.ticket-ref-text {
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c4b5fd;
+  letter-spacing: 0.05em;
+}
+
+.ticket-copy-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ticket-total-val {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #34d399;
+}
+
+/* Allocated Seats List */
+.ticket-seats-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ticket-seats-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ticket-seat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.ticket-seat-cat {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+/* QR Code Display */
+.ticket-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ticket-qr-frame {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-qr-img {
+  width: 170px;
+  height: 170px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.ticket-qr-info {
+  text-align: center;
+}
+
+.ticket-qr-instruction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.ticket-qr-placeholder {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+/* Modal Actions */
+.ticket-modal-actions {
+  padding: 14px 24px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  gap: 12px;
+}
+
+.ticket-modal-actions button {
+  flex: 1;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .ticket-modal-card {
+    max-width: 100%;
+  }
+
+  .ticket-qr-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .ticket-modal-title {
+    font-size: 1.15rem;
+  }
+}

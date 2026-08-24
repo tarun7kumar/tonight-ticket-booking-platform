@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Ticket, Calendar, MapPin, Clock, X, QrCode, AlertCircle, Film, Music } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { LoadingSpinner } from '../components/shared/ProtectedRoute';
+import TicketModal from '../components/shared/TicketModal';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 import './Dashboard.css';
@@ -14,6 +15,7 @@ export default function Dashboard() {
   const [waitlist, setWaitlist] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('bookings');
+  const [selectedTicket, setSelectedTicket] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -156,20 +158,34 @@ export default function Dashboard() {
                       <span className="booking-card__amount">₹{parseFloat(booking.total_amount).toFixed(0)}</span>
 
                       {booking.qr_code_data && (
-                        <div className="booking-card__qr">
+                        <div
+                          className="booking-card__qr"
+                          onClick={() => setSelectedTicket(booking)}
+                          title="Click to expand QR Ticket"
+                          style={{ cursor: 'pointer' }}
+                        >
                           <img src={booking.qr_code_data} alt="QR Code" />
                         </div>
                       )}
 
-                      {booking.status === 'confirmed' && (
+                      <div className="flex gap-xs" style={{ marginTop: 4 }}>
                         <button
-                          className="btn btn-ghost btn-sm"
-                          style={{ color: 'var(--danger)' }}
-                          onClick={() => handleCancelBooking(booking.id)}
+                          className="btn btn-secondary btn-sm"
+                          style={{ fontSize: '0.75rem', padding: '5px 10px' }}
+                          onClick={() => setSelectedTicket(booking)}
                         >
-                          <X size={14} /> Cancel
+                          <QrCode size={13} /> QR Ticket
                         </button>
-                      )}
+                        {booking.status === 'confirmed' && (
+                          <button
+                            className="btn btn-ghost btn-sm"
+                            style={{ color: 'var(--danger)', fontSize: '0.75rem', padding: '5px 8px' }}
+                            onClick={() => handleCancelBooking(booking.id)}
+                          >
+                            <X size={13} /> Cancel
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -231,6 +247,13 @@ export default function Dashboard() {
           </div>
         )}
       </div>
+
+      {/* QR Ticket Modal */}
+      <TicketModal
+        isOpen={!!selectedTicket}
+        onClose={() => setSelectedTicket(null)}
+        bookingData={selectedTicket}
+      />
     </div>
   );
 }

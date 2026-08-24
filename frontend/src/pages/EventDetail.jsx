@@ -5,6 +5,7 @@ import { Calendar, Clock, MapPin, Film, Music, Users, AlertCircle, ArrowLeft, Lo
 import toast from 'react-hot-toast';
 import SeatMap from '../components/seatmap/SeatMap';
 import HoldTimer from '../components/shared/HoldTimer';
+import TicketModal from '../components/shared/TicketModal';
 import { LoadingSpinner } from '../components/shared/ProtectedRoute';
 import { useAuth } from '../context/AuthContext';
 import { useSocket } from '../context/SocketContext';
@@ -28,6 +29,7 @@ export default function EventDetail() {
   const [loading, setLoading] = useState(true);
   const [holding, setHolding] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const [confirmedBooking, setConfirmedBooking] = useState(null);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [selectedWaitlistCategory, setSelectedWaitlistCategory] = useState(null);
 
@@ -142,9 +144,10 @@ export default function EventDetail() {
         event_id: parseInt(id),
       });
 
-      toast.success('🎫 Booking confirmed! Check your email for the QR ticket.');
+      toast.success('🎫 Booking confirmed!');
       setHoldExpiry(null);
       setSelectedSeats([]);
+      setConfirmedBooking(data);
 
       // Refresh seats
       const seatsRes = await api.get(`/events/${id}/seats`);
@@ -420,6 +423,14 @@ export default function EventDetail() {
           </div>
         </div>
       </div>
+
+      {/* Ticket & QR Code Modal */}
+      <TicketModal
+        isOpen={!!confirmedBooking}
+        onClose={() => setConfirmedBooking(null)}
+        bookingData={confirmedBooking}
+        event={event}
+      />
     </div>
   );
 }
