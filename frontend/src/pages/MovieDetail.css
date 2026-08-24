@@ -282,18 +282,18 @@
 
 /* ─── SECTION STYLING ──────────────────────────────────────── */
 .movie-section {
-  padding-top: clamp(4.25rem, 7.5vw, 6.5rem);
-  padding-bottom: clamp(3.25rem, 5.5vw, 5rem);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .movie-section:last-of-type {
   border-bottom: none;
-  padding-bottom: clamp(5rem, 9vw, 8rem);
+  padding-bottom: var(--space-3xl);
 }
 
 .movie-section__header {
-  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+  margin-bottom: var(--space-md);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
