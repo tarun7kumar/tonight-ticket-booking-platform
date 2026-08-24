@@ -142,14 +142,18 @@ Visit **`http://localhost:5173`** in your browser.
 
 ---
 
-## 👥 Demo Credentials
+## 👥 Test Accounts & Demo Credentials
 
-| Role | Email | Password | Access |
+Use these pre-seeded test accounts to log in and test each role's functionality:
+
+| Role | Email | Password | Permissions & Dashboard |
 |---|---|---|---|
-| **Admin** | `admin@ticketbooking.com` | `admin123` | Venue & Seat Grid Creation (`/admin`) |
-| **Organiser** | `organiser@tonight.com` | `organiser123` | Event Creation & Revenue Analytics (`/organiser`) |
-| **Customer 1** | `customer@tonight.com` | `customer123` | Seat Booking, QR Tickets, Waitlist (`/dashboard`) |
-| **Customer 2** | `marcus@tonight.com` | `customer123` | Concurrency & Waitlist Testing (`/dashboard`) |
+| 👑 **Admin** | `admin@ticketbooking.com` | `admin123` | Venue management, physical seat grid auto-generation (`/admin`) |
+| 🎭 **Organiser** | `organiser@tonight.com` | `organiser123` | Create movie/concert listings, category pricing, revenue analytics (`/organiser`) |
+| 🎟️ **Customer** | `customer@tonight.com` | `customer123` | Interactive seat selection, hold timer, booking, waitlist & QR tickets (`/dashboard`) |
+
+> [!TIP]
+> You can also register new customer or organiser accounts directly via the `/register` page.
 
 ---
 
