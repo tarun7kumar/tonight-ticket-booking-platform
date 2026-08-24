@@ -1,0 +1,13 @@
+{
+  "name": "tonight-ticket-booking",
+  "version": "1.0.0",
+  "description": "Tonight — Cinematic Ticket Booking Platform",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "db:init": "cd backend && npm run db:init",
+    "db:seed": "cd backend && npm run db:seed"
+  },
+  "keywords": ["ticket-booking", "seat-map", "waitlist", "qr-code", "tmdb"],
+  "license": "MIT"
+}

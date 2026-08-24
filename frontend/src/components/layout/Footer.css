@@ -1,0 +1,118 @@
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  padding: var(--space-3xl) 0 var(--space-xl);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-3xl);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.3));
+}
+
+.footer__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.footer__tagline {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+.footer__links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.footer__links-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer__links-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.footer__link {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  transition: color var(--transition-base);
+  padding: 2px 0;
+}
+
+.footer__link:hover {
+  color: var(--accent-hover);
+}
+
+.footer__divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-2xl) 0 var(--space-lg);
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__copyright {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer__socials {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer__social-link {
+  color: var(--text-tertiary);
+  transition: color var(--transition-base);
+}
+
+.footer__social-link:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  .footer__links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

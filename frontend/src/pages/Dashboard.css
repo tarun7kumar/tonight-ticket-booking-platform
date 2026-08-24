@@ -1,0 +1,241 @@
+.dashboard {
+  padding: var(--space-2xl) 0 var(--space-4xl);
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+/* Tabs */
+.dashboard__tabs {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboard__tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.dashboard__tab:hover {
+  color: var(--text-secondary);
+}
+
+.dashboard__tab--active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Empty state */
+.dashboard__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-4xl) 0;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+.dashboard__empty h3 {
+  font-family: var(--font-display);
+  color: var(--text-secondary);
+}
+
+/* Booking Card */
+.dashboard__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.booking-card {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base);
+}
+
+.booking-card:hover {
+  border-color: var(--border-hover);
+}
+
+.booking-card__left {
+  display: flex;
+  gap: var(--space-md);
+  flex: 1;
+}
+
+.booking-card__event-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.booking-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.booking-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.booking-card__title a {
+  transition: color var(--transition-base);
+}
+
+.booking-card__title a:hover {
+  color: var(--accent);
+}
+
+.booking-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.booking-card__meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+
+.booking-card__seats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.booking-card__seat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.booking-card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.booking-card__ref {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.booking-card__ref-code {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.booking-card__amount {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.booking-card__qr {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.booking-card__qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Waitlist Card */
+.waitlist-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.waitlist-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.waitlist-card__info h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.waitlist-card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .booking-card {
+    flex-direction: column;
+  }
+  .booking-card__right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+  }
+}

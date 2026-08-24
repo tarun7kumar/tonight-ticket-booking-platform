@@ -1,0 +1,111 @@
+.events-page {
+  padding: var(--space-2xl) 0 var(--space-4xl);
+}
+
+.events-page__header {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+/* Filters */
+.events-page__filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.events-page__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0 16px;
+  flex: 1;
+  min-width: 240px;
+  max-width: 400px;
+  transition: border-color var(--transition-base);
+}
+
+.events-page__search:focus-within {
+  border-color: var(--accent);
+}
+
+.events-page__search-icon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.events-page__search-input {
+  flex: 1;
+  padding: 12px 8px;
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.events-page__search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.events-page__filter-chips {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.filter-chip:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.filter-chip--active {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Loading & Empty */
+.events-page__loading {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4xl) 0;
+}
+
+.events-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-4xl) 0;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+.events-page__empty h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+}
+
+.events-page__empty p {
+  font-size: 0.9rem;
+}

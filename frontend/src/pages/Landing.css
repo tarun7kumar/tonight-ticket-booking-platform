@@ -1,0 +1,324 @@
+/* ═══ HERO ═══════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35);
+  transform: scale(1.05);
+}
+
+.hero__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.85) 60%, var(--bg-primary) 100%),
+    linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-3xl);
+}
+
+.hero__text {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero__title {
+  margin-top: var(--space-sm);
+}
+
+.hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Hero Stats */
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: fit-content;
+}
+
+.hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero__stat>div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__stat-value {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hero__stat-label {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+.hero__stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+}
+
+/* Scroll indicator */
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scroll-pulse 2s ease infinite;
+}
+
+@keyframes scroll-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ═══ TRENDING ═══════════════════════════════════════════════ */
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-md);
+}
+
+.trending-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.trending-card__image {
+  aspect-ratio: 2/3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-card);
+}
+
+.trending-card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trending-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 0%, transparent 50%);
+}
+
+.trending-card__rating {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--warning);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.trending-card__info {
+  padding: 0 4px;
+}
+
+.trending-card__title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.trending-card__year {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+/* ═══ STEPS ══════════════════════════════════════════════════ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.step-card {
+  position: relative;
+  padding: var(--space-2xl) var(--space-xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: all var(--transition-cinematic);
+}
+
+.step-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+
+.step-card__num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--bg-elevated);
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  line-height: 1;
+}
+
+.step-card__icon {
+  color: var(--accent);
+}
+
+.step-card__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.step-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ═══ CTA ════════════════════════════════════════════════════ */
+.cta-section {
+  padding: var(--space-4xl) 0;
+}
+
+.cta-box {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-2xl);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(10, 10, 10, 0.5) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.cta-box__actions {
+  margin-top: var(--space-md);
+}
+
+/* ═══ Responsive ═════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .trending-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__stats {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .hero__stat-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .trending-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+}

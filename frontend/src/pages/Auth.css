@@ -1,0 +1,110 @@
+.auth-page {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.auth-card__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.auth-card__logo {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: var(--space-sm);
+}
+
+.auth-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.auth-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+.auth-input {
+  padding-left: 42px !important;
+  width: 100%;
+}
+
+/* Role Selector */
+.auth-role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.auth-role-btn {
+  padding: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: var(--text-secondary);
+}
+
+.auth-role-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.auth-role-btn--active {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  color: var(--accent);
+}
+
+/* Footer */
+.auth-card__footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+.auth-card__link {
+  color: var(--accent);
+  font-weight: 600;
+  transition: color var(--transition-base);
+}
+
+.auth-card__link:hover {
+  color: var(--accent-hover);
+}

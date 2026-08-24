@@ -1,0 +1,157 @@
+.event-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-cinematic);
+  height: 100%;
+}
+
+.event-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+/* Image */
+.event-card__image {
+  position: relative;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.event-card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-cinematic);
+}
+
+.event-card:hover .event-card__poster {
+  transform: scale(1.05);
+}
+
+.event-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+}
+
+/* Overlay */
+.event-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.9) 0%,
+    rgba(10, 10, 10, 0.1) 40%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Badges */
+.event-card__badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+/* Date overlay */
+.event-card__date-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  padding: 6px 12px;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.event-card__date-day {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+}
+
+/* Body */
+.event-card__body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-card__meta {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.event-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+
+.event-card__venue {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+
+/* Availability */
+.event-card__availability {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.event-card__availability-bar {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.event-card__availability-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width var(--transition-slow);
+}
+
+.event-card__availability-text {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.03em;
+}
