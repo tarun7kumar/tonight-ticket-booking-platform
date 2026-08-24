@@ -51,26 +51,32 @@ export default function EventCard({ event, index = 0 }) {
 
           {/* Badges */}
           <div className="event-card__badges">
-            <span className="badge badge-accent">
-              {event.type === 'movie' ? <Film size={10} /> : <Music size={10} />}
-              {event.type}
-            </span>
+            {event.type !== 'movie' && (
+              <span className="badge badge-accent">
+                <Music size={10} />
+                {event.type}
+              </span>
+            )}
             {isSoldOut && <span className="badge badge-danger">Sold Out</span>}
           </div>
 
-          {/* Date overlay */}
-          <div className="event-card__date-overlay">
-            <span className="event-card__date-day">{formatDate(event.event_date)}</span>
-          </div>
+          {/* Date overlay (only for non-movie events) */}
+          {event.type !== 'movie' && (
+            <div className="event-card__date-overlay">
+              <span className="event-card__date-day">{formatDate(event.event_date)}</span>
+            </div>
+          )}
         </div>
 
         <div className="event-card__body">
           <h3 className="event-card__title">{event.title}</h3>
           <div className="event-card__meta">
-            <span className="event-card__meta-item">
-              <Calendar size={13} />
-              {formatDate(event.event_date)}
-            </span>
+            {event.type !== 'movie' && (
+              <span className="event-card__meta-item">
+                <Calendar size={13} />
+                {formatDate(event.event_date)}
+              </span>
+            )}
             <span className="event-card__meta-item">
               <Clock size={13} />
               {formatTime(event.event_time)}

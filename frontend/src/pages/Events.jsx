@@ -248,9 +248,6 @@ export default function Events() {
                     />
                     <div className="event-card__overlay" />
                     <div className="event-card__badges">
-                      <span className="badge badge-accent">
-                        <Film size={10} /> Movie
-                      </span>
                       {movie.vote_average > 0 && (
                         <span className="badge badge-secondary">
                           ★ {movie.vote_average.toFixed(1)}
@@ -262,10 +259,6 @@ export default function Events() {
                   <div className="event-card__body">
                     <h3 className="event-card__title">{movie.title}</h3>
                     <div className="event-card__meta">
-                      <span className="event-card__meta-item">
-                        <Calendar size={13} />
-                        {movie.release_date ? movie.release_date.split('-')[0] : 'In Theatres'}
-                      </span>
                       <span className="event-card__meta-item">
                         <Clock size={13} />
                         Live Cinema
