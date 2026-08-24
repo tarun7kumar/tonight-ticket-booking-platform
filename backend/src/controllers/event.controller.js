@@ -215,7 +215,7 @@ const getEventById = asyncHandler(async (req, res) => {
  */
 const updateEvent = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  const { title, description, poster_url, event_date, event_time, status, hold_ttl_minutes } = req.body;
+  const { title, type, description, poster_url, event_date, event_time, status, hold_ttl_minutes, pricing } = req.body;
 
   // Verify ownership
   const existing = await query('SELECT organiser_id FROM events WHERE id = $1', [id]);
@@ -229,16 +229,31 @@ const updateEvent = asyncHandler(async (req, res) => {
   const result = await query(
     `UPDATE events SET
        title = COALESCE($1, title),
-       description = COALESCE($2, description),
-       poster_url = COALESCE($3, poster_url),
-       event_date = COALESCE($4, event_date),
-       event_time = COALESCE($5, event_time),
-       status = COALESCE($6, status),
-       hold_ttl_minutes = COALESCE($7, hold_ttl_minutes)
-     WHERE id = $8
+       type = COALESCE($2, type),
+       description = COALESCE($3, description),
+       poster_url = COALESCE($4, poster_url),
+       event_date = COALESCE($5, event_date),
+       event_time = COALESCE($6, event_time),
+       status = COALESCE($7, status),
+       hold_ttl_minutes = COALESCE($8, hold_ttl_minutes)
+     WHERE id = $9
      RETURNING *`,
-    [title, description, poster_url, event_date, event_time, status, hold_ttl_minutes, id]
+    [title, type, description, poster_url, event_date, event_time, status, hold_ttl_minutes, id]
   );
+
+  if (Array.isArray(pricing) && pricing.length > 0) {
+    for (const p of pricing) {
+      if (p.category_id && p.price !== undefined) {
+        await query(
+          `INSERT INTO event_pricing (event_id, category_id, price)
+           VALUES ($1, $2, $3)
+           ON CONFLICT (event_id, category_id)
+           DO UPDATE SET price = EXCLUDED.price`,
+          [id, p.category_id, p.price]
+        );
+      }
+    }
+  }
 
   res.json({ message: 'Event updated.', event: result.rows[0] });
 });
